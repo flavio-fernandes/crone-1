@@ -103,8 +103,14 @@
 -copyright('Copyright (c)2002 Cat`s Eye Technologies. All rights reserved.').
 
 -export([start/1, stop/1]).
+-export([start/2]).
 -export([loop_task/1]).
 -export([format_time/1]).
+
+%% @spec start([_StartType, _StartArgs]) -> ok.
+%% @doc Starts <code>crone</code> application.
+start(_StartType, _StartArgs) ->
+    {ok, self()}.
 
 %% @spec start([task()]) -> [pid()]
 %% @doc Starts <code>crone</code>, spawning a process for each task.
